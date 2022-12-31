@@ -10,7 +10,6 @@ const Coins = () => {
   useEffect(() => {
     const fetchCoins = async () => {
       let { data } = await axios.get(`${server}/coins/markets?vs_currency=inr`);
-      console.log(data);
       setCoinsData(data);
       setLoading(false);
     };
