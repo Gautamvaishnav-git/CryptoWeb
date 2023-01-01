@@ -13,7 +13,7 @@ const Coins = () => {
   const [page, setPage] = useState(1);
   const [error, setError] = useState(false);
   const [currency, setCurrency] = useState("inr");
-  const btns = new Array(128).fill(1);
+  const btns = new Array(129).fill(1);
 
   const changePage = (pageNo) => {
     setPage(pageNo);
@@ -58,7 +58,14 @@ const Coins = () => {
           </>
         )}
       </HStack>
-      <HStack w="full" overflowX="auto" px="8" py="4" maxW="container.xl" mx="auto">
+      <HStack
+        w="full"
+        overflowX="auto"
+        px="8"
+        py="4"
+        maxW="container.xl"
+        mx="auto"
+      >
         {btns.map((btn, index) => {
           return (
             <Button
