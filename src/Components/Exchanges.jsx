@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { server } from "../main";
 import Loader from "./Loader";
 import ExchangeCard from "./ExchangeCard";
-import ExchangeErr from "./ExchangeErr";
+import FetchingErr from "./FetchingErr";
 
 const Exchanges = () => {
   const [exchangesData, setExchangesData] = useState([]);
@@ -26,7 +26,7 @@ const Exchanges = () => {
     fetchExchanges();
   }, []);
 
-  if (error) return <ExchangeErr />;
+  if (error) return <FetchingErr message={"Error while fetching Exchanges"} />;
 
   return (
     <>

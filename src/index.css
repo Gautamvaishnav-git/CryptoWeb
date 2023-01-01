@@ -1,0 +1,21 @@
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-button {
+  background: current;
+}
+
+::-webkit-scrollbar-thumb {
+  background: currentColor;
+  border-radius: 5px;
+}
+
+a {
+  margin: 0 !important;
+}
