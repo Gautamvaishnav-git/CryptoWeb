@@ -8,6 +8,7 @@ import ExchangeCard from "./ExchangeCard";
 import FetchingErr from "./FetchingErr";
 
 const Exchanges = () => {
+  document.title = "CryptoApp | Exchanges";
   const [exchangesData, setExchangesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);

@@ -4,7 +4,8 @@ import Exchanges from "./Components/Exchanges";
 import Coins from "./Components/Coins";
 import Coin from "./Components/CoinDetail";
 import Header from "./Components/Header";
-import './App.css'
+import Footer from "./Components/Footer";
+import "./App.css";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/coins" element={<Coins />} />
         <Route path="/coin/:id" element={<Coin />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

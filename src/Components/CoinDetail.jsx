@@ -36,8 +36,8 @@ const CoinDetail = () => {
   const [chartArr, setChartArr] = useState([]);
   const [days, setDays] = useState("24h");
   let daysBTN = ["24h", "7d", "14d", "30d", "60d", "200d", "365d", "max"];
-
   const params = useParams();
+  document.title = `CryptoApp | Coins | ${params.id}`;
 
   const Currencyformat = new Intl.NumberFormat("en-in", {
     style: "currency",

@@ -1,0 +1,16 @@
+.active {
+  color: #319795;
+}
+
+.HomeBG {
+  animation: HomeBGani 1s linear alternate infinite forwards;
+}
+
+@keyframes HomeBGani {
+  from {
+    background-position: center;
+  }
+  to {
+    background-position: top;
+  }
+}
