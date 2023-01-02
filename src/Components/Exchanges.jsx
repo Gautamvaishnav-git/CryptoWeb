@@ -16,10 +16,9 @@ const Exchanges = () => {
     const fetchExchanges = async () => {
       try {
         let { data } = await axios.get(`${server}/exchanges`);
-        setExchangesData(data);
+        setExchangesData(await data);
         setLoading(false);
       } catch (error) {
-        setLoading(false);
         setError(true);
       }
     };
@@ -30,7 +29,15 @@ const Exchanges = () => {
 
   return (
     <>
-      <HStack wrap="wrap" gap="4" justifyContent="space-evenly" px="2" py="4">
+      <HStack
+        wrap="wrap"
+        maxW="container.xl"
+        gap="4"
+        mx="auto"
+        justifyContent="space-evenly"
+        px="2"
+        py="4"
+      >
         {loading ? (
           <Loader />
         ) : (

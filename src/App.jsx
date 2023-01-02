@@ -2,8 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Exchanges from "./Components/Exchanges";
 import Coins from "./Components/Coins";
-import Coin from "./Components/Coin";
+import Coin from "./Components/CoinDetail";
 import Header from "./Components/Header";
+import './App.css'
 
 const App = () => {
   return (

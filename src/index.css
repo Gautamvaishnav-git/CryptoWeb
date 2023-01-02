@@ -3,17 +3,20 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-button {
-  background: current;
+  background: #319795;
 }
 
 ::-webkit-scrollbar-thumb {
   background: currentColor;
   border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #319795;
 }
 
 a {

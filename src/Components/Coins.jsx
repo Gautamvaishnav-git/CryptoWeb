@@ -2,7 +2,16 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Loader from "./Loader";
 import { server } from "../main";
-import { HStack, VStack, Image, Heading, Text, Button } from "@chakra-ui/react";
+import {
+  HStack,
+  VStack,
+  Image,
+  Heading,
+  Text,
+  Button,
+  RadioGroup,
+  Radio,
+} from "@chakra-ui/react";
 import FetchingErr from "./FetchingErr";
 import { Link } from "react-router-dom";
 
@@ -26,11 +35,10 @@ const Coins = () => {
         let { data } = await axios.get(
           `${server}/coins/markets?vs_currency=${currency}&page=${page}`
         );
-        setCoinsData(data);
+        setCoinsData(await data);
         setLoading(false);
       } catch (error) {
         setError(true);
-        setLoading(false);
       }
     };
     fetchCoins();
@@ -40,6 +48,21 @@ const Coins = () => {
 
   return (
     <>
+      <RadioGroup value={currency} onChange={setCurrency} p="4">
+        <Radio value="inr" p="2" defaultChecked>
+          INR
+        </Radio>
+        <Radio value="usd" p="2">
+          USD
+        </Radio>
+        <Radio value="eur" p="2">
+          EUR
+        </Radio>
+        <Radio value="JPY" p="2">
+          YEN
+        </Radio>
+      </RadioGroup>
+
       <HStack
         gap="4"
         m="4"
@@ -97,35 +120,38 @@ const CoinCard = ({ coinsData, currency }) => {
   let price = Currencyformat.format(current_price);
   return (
     <>
-      <Link to={`/coin/${id}`}>
-        <VStack
-          bgColor="gray.200"
-          w="52"
-          py="4"
-          flexGrow={["1", "initial"]}
-          borderRadius="10"
-          _dark={{ bgColor: "gray.700" }}
-          transition="all 0.1s ease-out"
-          _hover={{ transform: "scale(1.1)" }}
-        >
-          <Image
-            src={image}
-            alt="coin image"
-            w="16"
-            h="16"
-            objectFit="contain"
-          />
-          <Heading size="md" noOfLines={1}>
-            {symbol}
-          </Heading>
-          <Text size="md" noOfLines={1}>
-            {name}
-          </Text>
-          <Text size="md" noOfLines={1}>
-            {price ? `${price}` : "N/A"}
-          </Text>
-        </VStack>
-      </Link>
+      <VStack w={["full", "auto"]} flexGrow={["1", "inherit"]} m="0 !important">
+        <Link to={`/coin/${id}`} style={{ width: "100%" }}>
+          <VStack
+            bgColor="gray.200"
+            py="4"
+            minW="52"
+            w={["90%", "full"]}
+            borderRadius="10"
+            _dark={{ bgColor: "gray.700" }}
+            transition="all 0.1s ease-out"
+            _hover={{ transform: "scale(1.1)" }}
+            mx="auto"
+          >
+            <Image
+              src={image}
+              alt="coin image"
+              w="16"
+              h="16"
+              objectFit="contain"
+            />
+            <Heading size="md" noOfLines={1}>
+              {symbol}
+            </Heading>
+            <Text size="md" noOfLines={1}>
+              {name}
+            </Text>
+            <Text size="md" noOfLines={1}>
+              {price ? `${price}` : "N/A"}
+            </Text>
+          </VStack>
+        </Link>
+      </VStack>
     </>
   );
 };
