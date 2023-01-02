@@ -80,14 +80,16 @@ const CoinDetail = () => {
         <Loader />
       ) : (
         <Container maxW="container.xl" pt="4">
-          <Box>
+          <Box w="full">
             <Chart arr={chartArr} currency={currency} days={days} />
           </Box>
 
-          <HStack p="4" wrap="wrap">
+          <HStack px={["1", "4"]} py="4" w="full" wrap="wrap" gap={["1", "2"]}>
             {daysBTN.map((btn) => (
               <Button
                 key={btn}
+                flexGrow={["1", "0"]}
+                m="0 !important"
                 onClick={(e) => {
                   switchChartStatics(btn);
                 }}
@@ -98,21 +100,21 @@ const CoinDetail = () => {
           </HStack>
 
           <RadioGroup value={currency} onChange={setCurrency} my="4">
-            <Radio value="inr" px="2" defaultChecked>
+            <Radio value="inr" px={["1", "2"]} defaultChecked>
               INR
             </Radio>
-            <Radio value="usd" px="2">
+            <Radio value="usd" px={["1", "2"]}>
               USD
             </Radio>
-            <Radio value="eur" px="2">
+            <Radio value="eur" px={["1", "2"]}>
               EURO
             </Radio>
-            <Radio value="jpy" px="2">
+            <Radio value="jpy" px={["1", "2"]}>
               YEN
             </Radio>
           </RadioGroup>
 
-          <VStack spacing="4" p="8" alignItems="flex-start">
+          <VStack spacing="4" px={["10px", "8"]} py="8" alignItems="flex-start">
             <Text
               fontSize="sm"
               alignSelf="center"
@@ -160,7 +162,7 @@ const CoinDetail = () => {
               low={coinsData.market_data.low_24h[`${currency}`]}
               high={coinsData.market_data.high_24h[`${currency}`]}
             />
-            <Box py="8">
+            <Box py="8" w="full">
               <Heading pb="4" fontSize="2xl">
                 Description
               </Heading>
@@ -272,16 +274,18 @@ const Item = ({ title, value = "N/A" }) => {
   return (
     <HStack
       w="full"
-      justifyContent="space-between"
+      justifyContent={["flex-start", "space-between"]}
+      alignItems={["flex-start", "center"]}
       fontFamily="Josefin Sans"
       borderBottom="1px"
       borderBottomColor="blackAlpha.100"
       _dark={{ borderBottomColor: "whiteAlpha.100" }}
+      flexDirection={["column", "row"]}
     >
       <Text fontSize="md" textTransform="capitalize">
         {title}
       </Text>
-      <Text fontSize="md" textTransform="capitalize">
+      <Text fontSize="md" textTransform="capitalize" m="0">
         {value === null ? "N/A" : value}
       </Text>
     </HStack>
@@ -292,16 +296,24 @@ const MediaItem = ({ title, link }) => {
   return (
     <HStack
       w="full"
-      justifyContent="space-between"
+      justifyContent={["flex-start", "space-between"]}
+      alignItems={["flex-start", "center"]}
       fontFamily="Josefin Sans"
       borderBottom="1px"
       borderBottomColor="blackAlpha.100"
       _dark={{ borderBottomColor: "whiteAlpha.100" }}
+      flexDirection={["column", "row"]}
     >
       <Text fontSize="md" textTransform="capitalize">
         {title}
       </Text>
-      <Link fontSize="md" href={link} fontFamily="monospace" target="blank">
+      <Link
+        fontSize="md"
+        href={link}
+        fontFamily="monospace"
+        target="blank"
+        wordBreak={"break-all"}
+      >
         {link === null ? "N/A" : link}
       </Link>
     </HStack>
