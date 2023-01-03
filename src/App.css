@@ -8,9 +8,9 @@
 
 @keyframes HomeBGani {
   from {
-    background-position: center;
+    background-position: 50% 50%;
   }
   to {
-    background-position: top;
+    background-position: 50% 60%;
   }
 }

@@ -1,5 +1,5 @@
 import { Alert, AlertIcon, Image } from "@chakra-ui/react";
-import ErrorPage from "../assets/ErrorPage.png";
+import ErrorPage from "../assets/ErrorPage.webp";
 
 const FetchingErr = ({ message }) => {
   return (

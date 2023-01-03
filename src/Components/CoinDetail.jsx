@@ -62,7 +62,6 @@ const CoinDetail = () => {
 
         setChartArr(await ChartData.prices);
         setCoinData(await data);
-        console.log(data);
         setLoading(false);
       } catch (error) {
         setError(true);
@@ -285,7 +284,12 @@ const Item = ({ title, value = "N/A" }) => {
       <Text fontSize="md" textTransform="capitalize">
         {title}
       </Text>
-      <Text fontSize="md" textTransform="capitalize" m="0">
+      <Text
+        fontSize={["sm", "md"]}
+        color={["gray.400", "currentcolor"]}
+        textTransform="capitalize"
+        m="0 !important"
+      >
         {value === null ? "N/A" : value}
       </Text>
     </HStack>
@@ -304,15 +308,18 @@ const MediaItem = ({ title, link }) => {
       _dark={{ borderBottomColor: "whiteAlpha.100" }}
       flexDirection={["column", "row"]}
     >
-      <Text fontSize="md" textTransform="capitalize">
+      <Text fontSize="md" textTransform="capitalize" w="full">
         {title}
       </Text>
       <Link
-        fontSize="md"
+        w="full"
+        fontSize={["sm", "md"]}
+        color={["gray.400", "currentcolor"]}
         href={link}
         fontFamily="monospace"
         target="blank"
         wordBreak={"break-all"}
+        textAlign={["left", "right"]}
       >
         {link === null ? "N/A" : link}
       </Link>
